@@ -1,5 +1,6 @@
 ---
 layout: post
+category: technical
 custom_js: mouse_coords
 ---
 

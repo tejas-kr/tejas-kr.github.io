@@ -12,25 +12,48 @@ entries:
       - title: github repo
         url: https://github.com/tejas-kr
       - title: resume
-        url: Resume_Tejas.pdf
+        url: Resume_TejasKumarJaiswal.pdf
       - title: stackoverflow
         url: https://stackoverflow.com/users/6255817/codingbruh
       - title: linkedin
         url: https://www.linkedin.com/in/tejas-jaiswal/
 
-  - title: all posts
-    post_list:
-      limit: 5
-      show_more: true
-      show_more_text: See archive...
-      show_more_url: archive.html
+  - title: posts
+    entries:
+      - title: technical posts
+        post_list:
+          category: technical
+          limit: 5
+          show_more: true
+          show_more_text: See more posts...
+          show_more_url: technical-archive.html
 
-  # - title: posts by category
-  #   post_list:
-  #     category: example2
-  #     show_more: true
-  #     show_more_text: See more posts...
-  #     show_more_url: example2-archive.html
+
+      - title: random thoughts
+        post_list:
+          category: randoms
+          limit: 5
+          show_more: true
+          show_more_text: See more posts...
+          show_more_url: random-archive.html
+
+      
+      - title: cultural posts
+        post_list:
+          category: cultural
+          limit: 5
+          show_more: true
+          show_more_text: See more posts...
+          show_more_url: cultural-archive.html
+
+
+      - title: all posts
+        post_list:
+          limit: 5
+          show_more: true
+          show_more_text: See archive...
+          show_more_url: archive.html
+
 
   # - title: rss
   #   url: feed.xml
