@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Diet Plan – Fuel Your Transformation</title>
+<link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @page { size: A3 portrait; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --saffron:    #E8640A;
+    --turmeric:   #F5A623;
+    --marigold:   #F9C74F;
+    --cream:      #FDF6EC;
+    --ivory:      #FFFBF3;
+    --terracotta: #C1440E;
+    --deepgreen:  #2D6A4F;
+    --henna:      #8B2500;
+    --ink:        #2C1A0E;
+    --pale:       #FEF0DC;
+    --palegreen:  #EBF5EF;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: #e8d5b0;
+    color: var(--ink);
+    width: 297mm;
+    margin: 0 auto;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .poster {
+    width: 100%;
+    min-height: 420mm;
+    background: var(--ivory);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ══ CORNER DECORATIONS ══ */
+  .corner {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    pointer-events: none;
+    z-index: 2;
+  }
+  .corner.tl { top: 14px; left: 0; }
+  .corner.tr { top: 14px; right: 0; transform: scaleX(-1); }
+  .corner.bl { bottom: 14px; left: 0; transform: scaleY(-1); }
+  .corner.br { bottom: 14px; right: 0; transform: scale(-1,-1); }
+
+  /* ── IKAT / BANDHANI BORDER BANDS ── */
+  .top-band, .bottom-band {
+    width: 100%;
+    height: 14px;
+    position: relative;
+    z-index: 3;
+  }
+  .top-band {
+    background: repeating-linear-gradient(
+      90deg,
+      #C1440E 0px, #C1440E 14px,
+      #E8640A 14px, #E8640A 28px,
+      #F5A623 28px, #F5A623 42px,
+      #F9C74F 42px, #F9C74F 56px,
+      #2D6A4F 56px, #2D6A4F 70px,
+      #F9C74F 70px, #F9C74F 84px,
+      #F5A623 84px, #F5A623 98px,
+      #E8640A 98px, #E8640A 112px,
+      #C1440E 112px, #C1440E 126px
+    );
+  }
+  .bottom-band {
+    background: repeating-linear-gradient(
+      90deg,
+      #2D6A4F 0px, #2D6A4F 14px,
+      #F9C74F 14px, #F9C74F 28px,
+      #F5A623 28px, #F5A623 42px,
+      #E8640A 42px, #E8640A 56px,
+      #C1440E 56px, #C1440E 70px,
+      #E8640A 70px, #E8640A 84px,
+      #F5A623 84px, #F5A623 98px,
+      #F9C74F 98px, #F9C74F 112px,
+      #2D6A4F 112px, #2D6A4F 126px
+    );
+  }
+
+  /* ── INNER PADDING ── */
+  .inner { padding: 24px 36px 20px; }
+
+  /* ── HEADER ── */
+  .header { text-align: center; margin-bottom: 16px; }
+
+  .om-row {
+    font-size: 20px;
+    letter-spacing: 12px;
+    color: var(--saffron);
+    margin-bottom: 4px;
+  }
+
+  .tag-line {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: var(--deepgreen);
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+
+  .main-title {
+    font-family: 'Yatra One', cursive;
+    font-size: 72px;
+    line-height: 0.95;
+    color: var(--saffron);
+    text-shadow: 2px 2px 0 rgba(193,68,14,0.2);
+  }
+  .main-title em { color: var(--terracotta); font-style: normal; }
+
+  .sub-title {
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: var(--deepgreen);
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  .divider {
+    display: flex; align-items: center; gap: 8px; margin: 10px 0;
+  }
+  .div-line {
+    flex: 1; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--turmeric), var(--saffron), var(--turmeric), transparent);
+  }
+  .div-icon { font-size: 16px; }
+
+  /* ── STATS BAR ── */
+  .stats-bar {
+    display: flex;
+    border: 2px solid var(--turmeric);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    background: var(--pale);
+  }
+  .stat {
+    flex: 1; text-align: center; padding: 8px 6px;
+    border-right: 1px solid rgba(245,166,35,0.45);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-val {
+    font-family: 'Yatra One', cursive;
+    font-size: 26px; color: var(--terracotta); line-height: 1;
+  }
+  .stat-lbl {
+    font-size: 7.5px; font-weight: 600; letter-spacing: 1.5px;
+    color: var(--deepgreen); text-transform: uppercase; margin-top: 1px;
+  }
+
+  /* ── TABLE ── */
+  table {
+    width: 100%; border-collapse: collapse; table-layout: fixed;
+    margin-bottom: 16px;
+    border: 2px solid var(--turmeric); border-radius: 6px; overflow: hidden;
+  }
+  thead tr { background: linear-gradient(90deg, var(--terracotta), var(--saffron), var(--turmeric)); }
+  thead th {
+    font-size: 9px; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; color: #fff; padding: 9px 5px; text-align: left;
+  }
+  thead th:first-child { width: 48px; }
+  thead th:last-child  { width: 72px; text-align: center; }
+
+  tbody tr { border-bottom: 1px solid rgba(245,166,35,0.3); }
+  tbody tr:nth-child(odd)  { background: #fff; }
+  tbody tr:nth-child(even) { background: var(--pale); }
+
+  tbody td {
+    font-size: 10px; padding: 7px 5px; vertical-align: top;
+    color: #3a2008; line-height: 1.45;
+  }
+  tbody td:first-child {
+    font-family: 'Yatra One', cursive; font-size: 17px;
+    color: var(--saffron); vertical-align: middle; text-align: center;
+    border-right: 2px solid rgba(245,166,35,0.35);
+    background: rgba(249,199,79,0.15);
+  }
+  tbody td:last-child {
+    font-family: 'Yatra One', cursive; font-size: 16px;
+    color: var(--terracotta); text-align: center; vertical-align: middle;
+    border-left: 2px solid rgba(245,166,35,0.35);
+    background: rgba(249,199,79,0.15); white-space: nowrap;
+  }
+  .ml {
+    font-size: 7.5px; font-weight: 700; letter-spacing: 1px;
+    color: var(--deepgreen); text-transform: uppercase; display: block; margin-bottom: 1px;
+  }
+
+  /* ── CARDS ── */
+  .footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+
+  .card {
+    border: 2px solid var(--turmeric); border-radius: 8px;
+    padding: 12px 14px; background: var(--pale); position: relative; overflow: hidden;
+  }
+  .card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 5px;
+    background: linear-gradient(90deg, var(--terracotta), var(--saffron), var(--turmeric), var(--deepgreen), var(--turmeric), var(--saffron), var(--terracotta));
+    border-radius: 6px 6px 0 0;
+  }
+  .card-title {
+    font-family: 'Yatra One', cursive; font-size: 18px;
+    color: var(--terracotta); margin-bottom: 7px; margin-top: 4px;
+  }
+  .card ul { list-style: none; }
+  .card ul li {
+    font-size: 10px; color: var(--ink); line-height: 1.65;
+    padding-left: 16px; position: relative;
+  }
+  .card ul li::before {
+    content: '🌿'; position: absolute; left: 0; font-size: 8px; top: 2px;
+  }
+
+  /* ── MANTRA ── */
+  .mantra { padding: 0 0 4px; }
+  .mantra-box {
+    border: 2px solid var(--turmeric); border-radius: 10px;
+    padding: 12px 20px 10px; text-align: center;
+    background: linear-gradient(135deg, var(--pale), #fff9ee);
+    position: relative; overflow: hidden;
+  }
+  .mantra-box::before {
+    content: 'ॐ';
+    position: absolute; font-size: 130px; color: rgba(245,166,35,0.07);
+    top: 50%; left: 50%; transform: translate(-50%,-50%);
+    font-family: serif; pointer-events: none;
+  }
+  .mantra-deco { font-size: 14px; color: var(--turmeric); letter-spacing: 8px; margin-bottom: 4px; }
+  .mantra-text {
+    font-family: 'Yatra One', cursive; font-size: 28px;
+    color: var(--saffron); line-height: 1.2; letter-spacing: 0.5px; position: relative;
+  }
+  .mantra-sub {
+    font-size: 8.5px; font-weight: 500; letter-spacing: 3px;
+    color: var(--deepgreen); text-transform: uppercase; margin-top: 5px; position: relative;
+  }
+
+  @media print {
+    body { width: 297mm; }
+    .poster { min-height: 420mm; }
+  }
+</style>
+</head>
+<body>
+<div class="poster">
+
+  <!-- CORNER RANGOLI -->
+  <svg class="corner tl" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg" fill="none">
+    <!-- Main vine -->
+    <path d="M2,2 Q50,30 70,80 Q90,130 130,148" stroke="#2D6A4F" stroke-width="2.5" opacity="0.5"/>
+    <path d="M2,2 Q30,50 50,70 Q80,100 100,148" stroke="#E8640A" stroke-width="1.5" opacity="0.35"/>
+    <!-- Paisley motifs -->
+    <path d="M8,4 Q30,0 32,18 Q34,34 16,36 Q-2,38 8,4Z" fill="#F5A623" opacity="0.5"/>
+    <path d="M4,8 Q26,4 28,22 Q30,36 12,38 Q-4,40 4,8Z" fill="#E8640A" opacity="0.3"/>
+    <path d="M30,8 Q46,4 47,16 Q48,26 36,28 Q20,30 30,8Z" fill="#2D6A4F" opacity="0.35"/>
+    <!-- Flowers -->
+    <circle cx="38" cy="38" r="6" fill="#F5A623" opacity="0.75"/>
+    <circle cx="38" cy="38" r="3" fill="#fff" opacity="0.95"/>
+    <circle cx="72" cy="72" r="6" fill="#E8640A" opacity="0.7"/>
+    <circle cx="72" cy="72" r="3" fill="#fff" opacity="0.95"/>
+    <circle cx="105" cy="110" r="5" fill="#2D6A4F" opacity="0.65"/>
+    <circle cx="105" cy="110" r="2.5" fill="#fff" opacity="0.95"/>
+    <!-- Petal decorations -->
+    <ellipse cx="38" cy="38" rx="10" ry="4" fill="#F9C74F" opacity="0.4" transform="rotate(30 38 38)"/>
+    <ellipse cx="38" cy="38" rx="10" ry="4" fill="#F9C74F" opacity="0.4" transform="rotate(90 38 38)"/>
+    <ellipse cx="38" cy="38" rx="10" ry="4" fill="#F9C74F" opacity="0.4" transform="rotate(150 38 38)"/>
+    <!-- Dots -->
+    <circle cx="55" cy="18" r="3" fill="#F9C74F" opacity="0.6"/>
+    <circle cx="18" cy="55" r="3" fill="#F9C74F" opacity="0.6"/>
+    <circle cx="85" cy="30" r="2.5" fill="#E8640A" opacity="0.5"/>
+    <circle cx="30" cy="85" r="2.5" fill="#E8640A" opacity="0.5"/>
+    <circle cx="120" cy="60" r="3" fill="#F5A623" opacity="0.45"/>
+    <circle cx="60" cy="120" r="3" fill="#F5A623" opacity="0.45"/>
+    <circle cx="140" cy="90" r="2" fill="#2D6A4F" opacity="0.4"/>
+    <circle cx="90" cy="140" r="2" fill="#2D6A4F" opacity="0.4"/>
+    <!-- Small leaf shapes -->
+    <path d="M20,20 Q26,14 32,20 Q26,26 20,20Z" fill="#2D6A4F" opacity="0.4"/>
+    <path d="M55,55 Q62,49 68,55 Q62,61 55,55Z" fill="#2D6A4F" opacity="0.35"/>
+  </svg>
+
+  <svg class="corner tr" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg" fill="none">
+    <path d="M2,2 Q50,30 70,80 Q90,130 130,148" stroke="#2D6A4F" stroke-width="2.5" opacity="0.5"/>
+    <path d="M8,4 Q30,0 32,18 Q34,34 16,36 Q-2,38 8,4Z" fill="#F5A623" opacity="0.5"/>
+    <path d="M4,8 Q26,4 28,22 Q30,36 12,38 Q-4,40 4,8Z" fill="#E8640A" opacity="0.3"/>
+    <path d="M30,8 Q46,4 47,16 Q48,26 36,28 Q20,30 30,8Z" fill="#2D6A4F" opacity="0.35"/>
+    <circle cx="38" cy="38" r="6" fill="#F5A623" opacity="0.75"/>
+    <circle cx="38" cy="38" r="3" fill="#fff" opacity="0.95"/>
+    <circle cx="72" cy="72" r="6" fill="#E8640A" opacity="0.7"/>
+    <circle cx="72" cy="72" r="3" fill="#fff" opacity="0.95"/>
+    <circle cx="105" cy="110" r="5" fill="#2D6A4F" opacity="0.65"/>
+    <circle cx="105" cy="110" r="2.5" fill="#fff" opacity="0.95"/>
+    <ellipse cx="38" cy="38" rx="10" ry="4" fill="#F9C74F" opacity="0.4" transform="rotate(30 38 38)"/>
+    <ellipse cx="38" cy="38" rx="10" ry="4" fill="#F9C74F" opacity="0.4" transform="rotate(90 38 38)"/>
+    <ellipse cx="38" cy="38" rx="10" ry="4" fill="#F9C74F" opacity="0.4" transform="rotate(150 38 38)"/>
+    <circle cx="55" cy="18" r="3" fill="#F9C74F" opacity="0.6"/>
+    <circle cx="18" cy="55" r="3" fill="#F9C74F" opacity="0.6"/>
+    <circle cx="85" cy="30" r="2.5" fill="#E8640A" opacity="0.5"/>
+    <circle cx="30" cy="85" r="2.5" fill="#E8640A" opacity="0.5"/>
+    <circle cx="120" cy="60" r="3" fill="#F5A623" opacity="0.45"/>
+    <circle cx="60" cy="120" r="3" fill="#F5A623" opacity="0.45"/>
+  </svg>
+
+  <svg class="corner bl" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg" fill="none">
+    <path d="M2,2 Q50,30 70,80 Q90,130 130,148" stroke="#2D6A4F" stroke-width="2.5" opacity="0.5"/>
+    <path d="M8,4 Q30,0 32,18 Q34,34 16,36 Q-2,38 8,4Z" fill="#F5A623" opacity="0.5"/>
+    <path d="M30,8 Q46,4 47,16 Q48,26 36,28 Q20,30 30,8Z" fill="#2D6A4F" opacity="0.35"/>
+    <circle cx="38" cy="38" r="6" fill="#F5A623" opacity="0.75"/>
+    <circle cx="38" cy="38" r="3" fill="#fff" opacity="0.95"/>
+    <circle cx="72" cy="72" r="6" fill="#E8640A" opacity="0.7"/>
+    <circle cx="72" cy="72" r="3" fill="#fff" opacity="0.95"/>
+    <ellipse cx="38" cy="38" rx="10" ry="4" fill="#F9C74F" opacity="0.4" transform="rotate(30 38 38)"/>
+    <ellipse cx="38" cy="38" rx="10" ry="4" fill="#F9C74F" opacity="0.4" transform="rotate(90 38 38)"/>
+    <circle cx="55" cy="18" r="3" fill="#F9C74F" opacity="0.6"/>
+    <circle cx="18" cy="55" r="3" fill="#F9C74F" opacity="0.6"/>
+  </svg>
+
+  <svg class="corner br" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg" fill="none">
+    <path d="M2,2 Q50,30 70,80 Q90,130 130,148" stroke="#2D6A4F" stroke-width="2.5" opacity="0.5"/>
+    <path d="M8,4 Q30,0 32,18 Q34,34 16,36 Q-2,38 8,4Z" fill="#F5A623" opacity="0.5"/>
+    <path d="M30,8 Q46,4 47,16 Q48,26 36,28 Q20,30 30,8Z" fill="#2D6A4F" opacity="0.35"/>
+    <circle cx="38" cy="38" r="6" fill="#F5A623" opacity="0.75"/>
+    <circle cx="38" cy="38" r="3" fill="#fff" opacity="0.95"/>
+    <circle cx="72" cy="72" r="6" fill="#E8640A" opacity="0.7"/>
+    <circle cx="72" cy="72" r="3" fill="#fff" opacity="0.95"/>
+    <ellipse cx="38" cy="38" rx="10" ry="4" fill="#F9C74F" opacity="0.4" transform="rotate(30 38 38)"/>
+    <ellipse cx="38" cy="38" rx="10" ry="4" fill="#F9C74F" opacity="0.4" transform="rotate(90 38 38)"/>
+    <circle cx="55" cy="18" r="3" fill="#F9C74F" opacity="0.6"/>
+    <circle cx="18" cy="55" r="3" fill="#F9C74F" opacity="0.6"/>
+  </svg>
+
+  <div class="top-band"></div>
+
+  <div class="inner">
+
+    <div class="header">
+      <div class="om-row">🪔 ✦ ॐ ✦ 🪔</div>
+      <div class="tag-line">Weekly Nutrition Blueprint · Fuel · Discipline · Transform</div>
+      <div class="main-title">FUEL YOUR <em>BODY</em></div>
+      <div class="sub-title">High Protein · Clean Eating · Strong Living</div>
+      <div class="divider">
+        <div class="div-line"></div>
+        <div class="div-icon">🌸</div>
+        <div class="div-line"></div>
+      </div>
+    </div>
+
+    <div class="stats-bar">
+      <div class="stat"><div class="stat-val">~1580</div><div class="stat-lbl">Min Cal / Day</div></div>
+      <div class="stat"><div class="stat-val">~1650</div><div class="stat-lbl">Avg Cal / Day</div></div>
+      <div class="stat"><div class="stat-val">150g</div><div class="stat-lbl">Chicken / Meal</div></div>
+      <div class="stat"><div class="stat-val">1 Scoop</div><div class="stat-lbl">Daily Whey</div></div>
+      <div class="stat"><div class="stat-val">7</div><div class="stat-lbl">Days Strong</div></div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Day</th>
+          <th>🌅 Breakfast</th>
+          <th>☀️ Mid-Morning</th>
+          <th>🍱 Lunch</th>
+          <th>🍎 Evening Snack</th>
+          <th>🌙 Dinner</th>
+          <th>Calories</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>MON</td>
+          <td><span class="ml">Eggs &amp; Roti</span>3-egg omelette (1 whole + 2 whites), 1 roti, onion &amp; tomato salad</td>
+          <td><span class="ml">Protein</span>1 scoop whey protein shake</td>
+          <td><span class="ml">Chicken + Dal</span>150g grilled chicken, 1 cup dal, 1 roti, cucumber salad</td>
+          <td><span class="ml">Light</span>1 apple, black coffee / green tea</td>
+          <td><span class="ml">Egg Bhurji</span>2 egg bhurji, 100g tofu/paneer, sautéed vegetables</td>
+          <td>≈1580</td>
+        </tr>
+        <tr>
+          <td>TUE</td>
+          <td><span class="ml">Oats Power</span>40g oats (water-cooked), 2 boiled eggs</td>
+          <td><span class="ml">Protein</span>1 scoop whey protein shake</td>
+          <td><span class="ml">Chicken + Rice</span>150g chicken curry (low oil), 1 cup rice, salad</td>
+          <td><span class="ml">Crunchy</span>Roasted chana (30g)</td>
+          <td><span class="ml">Eggs &amp; Veg</span>3-egg omelette, sautéed vegetables</td>
+          <td>≈1600</td>
+        </tr>
+        <tr>
+          <td>WED</td>
+          <td><span class="ml">Egg &amp; Roti</span>2 boiled eggs + 2 egg whites, 1 roti</td>
+          <td><span class="ml">Protein</span>1 scoop whey protein shake</td>
+          <td><span class="ml">Grilled Power</span>150g grilled chicken, 1 cup dal, 1 roti, salad</td>
+          <td><span class="ml">Energy</span>1 banana</td>
+          <td><span class="ml">Tofu Stir Fry</span>150g tofu stir fry with vegetables</td>
+          <td>≈1550</td>
+        </tr>
+        <tr>
+          <td>THU</td>
+          <td><span class="ml">Oats Power</span>40g oats, 2 eggs</td>
+          <td><span class="ml">Protein</span>1 scoop whey protein shake</td>
+          <td><span class="ml">Chicken + Roti</span>150g chicken breast, 1 roti, vegetable sabzi, salad</td>
+          <td><span class="ml">Fats + Protein</span>Peanuts (20g)</td>
+          <td><span class="ml">Egg Bhurji</span>3 egg bhurji, vegetables</td>
+          <td>≈1600</td>
+        </tr>
+        <tr>
+          <td>FRI</td>
+          <td><span class="ml">Eggs &amp; Roti</span>3-egg omelette, 1 roti</td>
+          <td><span class="ml">Protein</span>1 scoop whey protein shake</td>
+          <td><span class="ml">Chicken + Rice</span>150g chicken, 1 cup rice, salad</td>
+          <td><span class="ml">Light</span>1 apple</td>
+          <td><span class="ml">Dal + Tofu</span>1 cup dal, 100g tofu, vegetables</td>
+          <td>≈1600</td>
+        </tr>
+        <tr>
+          <td>SAT</td>
+          <td><span class="ml">Oats Power</span>40g oats, 2 eggs</td>
+          <td><span class="ml">Protein</span>1 scoop whey protein shake</td>
+          <td><span class="ml">Grilled Power</span>150g chicken breast, 1 roti, vegetables</td>
+          <td><span class="ml">Crunchy</span>Roasted chana (30g)</td>
+          <td><span class="ml">Eggs &amp; Veg</span>3-egg omelette, vegetables</td>
+          <td>≈1550</td>
+        </tr>
+        <tr>
+          <td>SUN</td>
+          <td><span class="ml">Eggs &amp; Roti</span>3 eggs, 1 roti</td>
+          <td><span class="ml">Protein</span>1 scoop whey protein shake</td>
+          <td><span class="ml">🎉 Cheat-Clean</span>Chicken biryani (~300g portion)</td>
+          <td><span class="ml">Fresh</span>Seasonal fruit</td>
+          <td><span class="ml">Light Close</span>Egg white omelette + salad</td>
+          <td>≈1650</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="footer-grid">
+      <div class="card">
+        <div class="card-title">🌿 Golden Rules to Live By</div>
+        <ul>
+          <li>Eat within 30–45 minutes of waking up every day</li>
+          <li>Drink at least 3 litres of water daily — no excuses</li>
+          <li>Never skip your protein shake; it counts toward your goals</li>
+          <li>Cook chicken grilled or steamed with minimal oil always</li>
+          <li>Stick to the plan — results demand time, not shortcuts</li>
+          <li>Sleep 7–8 hours; recovery is where real gains are made</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title">💪 Why This Plan Works</div>
+        <ul>
+          <li>High protein preserves muscle while your body sheds fat</li>
+          <li>Balanced carbs keep your energy stable throughout the day</li>
+          <li>~1580–1700 kcal creates a healthy, sustainable calorie deficit</li>
+          <li>Mid-morning whey shake curbs cravings before they strike</li>
+          <li>Light dinners support better digestion and deeper sleep</li>
+          <li>Sunday biryani = your well-earned reward for 6 days of discipline 🍛</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mantra">
+      <div class="mantra-box">
+        <div class="mantra-deco">❈ ❈ ❈</div>
+        <div class="mantra-text">Discipline Builds the Body That Desire Only Dreams Of</div>
+        <div class="mantra-sub">Every Meal is a Choice · Every Choice is a Step · Every Step is Progress</div>
+        <div class="mantra-deco" style="margin-top:7px;">🪷 🪷 🪷</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="bottom-band"></div>
+</div>
+</body>
+</html>
